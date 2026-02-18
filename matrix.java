@@ -90,7 +90,7 @@ class Matrix {
 }
 
 
-public class MatrixDemo {
+public class matrix {
 
     public static void main(String[] args) {
 

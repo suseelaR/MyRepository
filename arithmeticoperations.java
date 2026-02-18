@@ -5,8 +5,11 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-public class ArithmeticApplet extends JApplet implements ActionListener {
+/*
+<applet code="arithmeticoperations.class" width="300" height="200">
+</applet>
+*/
+public class arithmeticoperations extends JApplet implements ActionListener {
 
     JTextField t1, t2, result;
     JButton add, sub, mul, div;
