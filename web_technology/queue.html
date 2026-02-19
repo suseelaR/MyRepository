@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Queue Operations</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#dfe6e9;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.box{
+    background:white;
+    padding:20px;
+    width:360px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+h3{
+    margin-top:0;
+    color:#0984e3;
+}
+
+input{
+    width:90%;
+    padding:8px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    padding:8px 12px;
+    margin:4px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    background:#74b9ff;
+    color:white;
+}
+
+button:hover{
+    opacity:.85;
+}
+
+#queueBox{
+    border:1px solid #aaa;
+    border-radius:5px;
+    min-height:70px;
+    margin-top:10px;
+    padding:8px;
+}
+
+.item{
+    display:inline-block;
+    background:#55efc4;
+    padding:6px 10px;
+    margin:4px;
+    border-radius:4px;
+}
+
+#msg{
+    margin-top:8px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h3>QUEUE (FIFO)</h3>
+
+<input id="val" placeholder="Enter value">
+
+<br>
+
+<button onclick="enqueue()">Enqueue</button>
+<button onclick="dequeue()">Dequeue</button>
+<button onclick="getFront()">Front</button>
+<button onclick="getRear()">Rear</button>
+<button onclick="isEmpty()">Is Empty?</button>
+<button onclick="size()">Size</button>
+
+<p id="msg"></p>
+
+<div id="queueBox"></div>
+
+</div>
+
+<script>
+
+let queue = [];
+
+/* Insert element */
+function enqueue(){
+let v = val.value;
+if(v=="") return;
+
+queue.push(v);
+val.value="";
+show();
+}
+
+/* Remove element */
+function dequeue(){
+if(queue.length==0){
+msg.innerText="Queue is Empty";
+return;
+}
+queue.shift();
+show();
+}
+
+/* Get front element */
+function getFront(){
+if(queue.length==0){
+msg.innerText="Queue is Empty";
+return;
+}
+msg.innerText="Front Element : " + queue[0];
+}
+
+/* Get rear element */
+function getRear(){
+if(queue.length==0){
+msg.innerText="Queue is Empty";
+return;
+}
+msg.innerText="Rear Element : " + queue[queue.length-1];
+}
+
+/* Check empty */
+function isEmpty(){
+if(queue.length==0)
+msg.innerText="Queue is Empty";
+else
+msg.innerText="Queue is NOT Empty";
+}
+
+/* Size of queue */
+function size(){
+msg.innerText="Queue Size : " + queue.length;
+}
+
+/* Display queue */
+function show(){
+queueBox.innerHTML="";
+for(let i=0;i<queue.length;i++){
+queueBox.innerHTML += "<span class='item'>" + queue[i] + "</span>";
+}
+msg.innerText="";
+}
+
+</script>
+
+</body>
+</html>

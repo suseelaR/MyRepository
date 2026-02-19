@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial;
+    background:#eee;
+}
+/* Card */
+.box{
+    background:white;
+    padding:15px;
+    width:260px;
+    border:1px solid #ccc;
+}
+/* Inputs */
+input{
+    width:100%;
+    padding:8px;
+    margin-bottom:8px;
+    text-align:center;
+    box-sizing:border-box;
+    border:1px solid #888;
+}
+/* First row */
+.row{
+    display:flex;
+    gap:5px;
+}
+#operator{
+    width:40px;
+}
+/* Buttons */
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:5px;
+}
+button{
+    padding:10px;
+    cursor:pointer;
+}
+.green{
+	background:lightgreen;
+}
+.red
+{background:lightcoral;}
+
+.blue
+{background:lightblue;}
+
+</style>
+</head>
+<body>
+
+<div  style="text-align:center">
+
+<h2>Simple Calculator</h2>
+<div class="box">
+
+
+<div class="row">
+<input id="n1" readonly placeholder="Number">
+<input id="op" readonly placeholder="Operator">
+<input id="n2" readonly placeholder="Number">
+</div>
+
+<input id="res" readonly placeholder="Result">
+
+<div class="buttons">
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button class="blue" onclick="setOp('/')">/</button>
+
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button class="blue" onclick="setOp('*')">*</button>
+
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button class="blue" onclick="setOp('+')">-</button>
+
+<button onclick="add('0')">0</button>
+<button onclick="add('.')">.</button>
+<button onclick="back()">←</button>
+<button class="blue" onclick="setOp('-')">+</button>
+
+
+<button class="red" onclick="clearAll()">Clear</button>
+<button class="green" onclick="calc()">=</button>
+
+</div>
+</div>
+</div>
+<script>
+let current="n1";
+
+function add(x){
+document.getElementById(current).value+=x;
+}
+
+function setOp(o){
+op.value=o;
+current="n2";
+}
+
+function calc(){
+let a=parseFloat(n1.value);
+let b=parseFloat(n2.value);
+let o=op.value;
+
+if(o=="+") res.value=a+b;
+if(o=="-") res.value=a-b;
+if(o=="*") res.value=a*b;
+if(o=="/") res.value=a/b;
+}
+
+function clearAll(){
+n1.value="";
+n2.value="";
+op.value="";
+res.value="";
+current="n1";
+}
+
+function back(){
+let f=document.getElementById(current);
+f.value=f.value.slice(0,-1);
+}
+
+</script>
+
+</body>
+</html>
