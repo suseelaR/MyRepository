@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logical Operators using Switch</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        select, input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 14px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #4a00e0;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #3200a8;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background: #f2f2f2;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Logical Operators</h2>
+
+    <select id="operator">
+        <option value="1">AND (&&)</option>
+        <option value="2">OR (||)</option>
+        <option value="3">NOT (!)</option>
+    </select>
+
+    <input type="text" id="val1" placeholder="Enter true or false">
+    <input type="text" id="val2" placeholder="Enter true or false (Not needed for NOT)">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div class="result" id="result">
+        Result: 
+    </div>
+</div>
+
+<script>
+function calculate() {
+
+    let choice = document.getElementById("operator").value;
+    let a = document.getElementById("val1").value.toLowerCase() === "true";
+    let b = document.getElementById("val2").value.toLowerCase() === "true";
+    let result;
+
+    switch(choice) {
+
+        case "1":   // AND
+            result = a && b;
+            break;
+
+        case "2":   // OR
+            result = a || b;
+            break;
+
+        case "3":   // NOT
+            result = !a;
+            break;
+
+        default:
+            result = "Invalid Selection";
+    }
+
+    document.getElementById("result").innerHTML = "Result: " + result;
+}
+</script>
+
+</body>
+</html>

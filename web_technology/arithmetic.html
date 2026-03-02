@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Arithmetic Calculator - AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .buttons {
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 8px 14px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #2193b0;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #176d81;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #444;
+            background: #f2f2f2;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body ng-controller="MainController">
+
+    <div class="container">
+        <h2>Arithmetic Calculator</h2>
+
+        <input type="number" placeholder="Enter First Number" ng-model="num1">
+        <input type="number" placeholder="Enter Second Number" ng-model="num2">
+
+        <div class="buttons">
+            <button ng-click="add()">+</button>
+            <button ng-click="sub()">−</button>
+            <button ng-click="mul()">×</button>
+            <button ng-click="div()">÷</button>
+        </div>
+
+        <div class="result">
+            Result: {{$root.result}}
+        </div>
+    </div>
+
+<script>
+    var app = angular.module("myApp", []);
+
+    app.run(function($rootScope) {
+        $rootScope.result = 0;
+    });
+
+    app.controller("MainController", function($scope, $rootScope) {
+
+        $scope.add = function() {
+            $rootScope.result = Number($scope.num1) + Number($scope.num2);
+        };
+
+        $scope.sub = function() {
+            $rootScope.result = Number($scope.num1) - Number($scope.num2);
+        };
+
+        $scope.mul = function() {
+            $rootScope.result = Number($scope.num1) * Number($scope.num2);
+        };
+
+        $scope.div = function() {
+            if ($scope.num2 == 0) {
+                $rootScope.result = "Cannot divide by zero";
+            } else {
+                $rootScope.result = Number($scope.num1) / Number($scope.num2);
+            }
+        };
+    });
+</script>
+
+</body>
+</html>
