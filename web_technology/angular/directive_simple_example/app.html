@@ -1,0 +1,49 @@
+<div class="container">
+
+  <h1>HTML DOM with Angular Directives</h1>
+  <h2>Demonstration of 4 Angular Directives</h2>
+
+  <!-- ngIf -->
+  <div class="card">
+    <h3>*ngIf Directive</h3>
+    <p *ngIf="showText" class="success">
+      This content is displayed using ngIf.
+    </p>
+  </div>
+
+  <!-- ngFor -->
+  <div class="card">
+    <h3>*ngFor Directive</h3>
+    <table>
+      <tr>
+        <th>S.No</th>
+        <th>Fruit Name</th>
+      </tr>
+      <tr *ngFor="let fruit of fruits; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{fruit}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ngStyle -->
+  <div class="card">
+    <h3>ngStyle Directive</h3>
+    <p [ngStyle]="{
+      'color':'blue',
+      'font-size':'22px',
+      'font-weight':'bold'
+    }">
+      This text is styled using ngStyle.
+    </p>
+  </div>
+
+  <!-- ngClass -->
+  <div class="card">
+    <h3>ngClass Directive</h3>
+    <p [ngClass]="{'highlight': isHighlight}">
+      This text uses ngClass styling.
+    </p>
+  </div>
+
+</div>
