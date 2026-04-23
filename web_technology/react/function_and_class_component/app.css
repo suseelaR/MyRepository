@@ -1,0 +1,26 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.box {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.name {
+  color: blue;
+  font-size: 32px;
+}
