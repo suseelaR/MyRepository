@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Angular Filters using Table</h1>
+
+  <table>
+    <tr>
+      <th>Filter Name</th>
+      <th>Original Value</th>
+      <th>Filtered Value</th>
+    </tr>
+
+    <tr>
+      <td>Uppercase</td>
+      <td>{{name}}</td>
+      <td>{{name | uppercase}}</td>
+    </tr>
+
+    <tr>
+      <td>Lowercase</td>
+      <td>{{name}}</td>
+      <td>{{name | lowercase}}</td>
+    </tr>
+
+    <tr>
+      <td>Currency</td>
+      <td>{{amount}}</td>
+      <td>{{amount | currency:'INR'}}</td>
+    </tr>
+
+    <tr>
+      <td>Date</td>
+      <td>{{today}}</td>
+      <td>{{today | date:'fullDate'}}</td>
+    </tr>
+
+  </table>
+</div>
